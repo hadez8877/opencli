@@ -1,0 +1,35 @@
+{
+	"$schema": "https://turborepo.org/schema.json",
+	"remoteCache": {
+		"enabled": true
+	},
+	"globalDependencies": ["tsconfig.json"],
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": ["bin/**", "src/**", "scripts/**", "package.json", "tsconfig.json", "tsup.config.ts"],
+			"outputs": ["dist/**"],
+			"outputLogs": "errors-only"
+		},
+		"dev": {
+			"dependsOn": ["^build"],
+			"cache": false,
+			"persistent": true,
+			"outputLogs": "full"
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"../../vitest.config.ts",
+				"__mocks__/**",
+				"__tests__/**",
+				"src/**",
+				"package.json",
+				"tsconfig.json",
+				"vitest.config.ts"
+			],
+			"outputs": ["coverage/**"],
+			"outputLogs": "new-only"
+		}
+	}
+}

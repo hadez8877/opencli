@@ -70,6 +70,22 @@ web_modules/
 .env.*
 !.env.example
 
+# Miscellaneous
+.tmp
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.windsurf/*
+!.windsurf/extensions.json
+!.windsurf/settings.json
+.idea
+.DS_Store
+.turbo
+out
+package.tgz
+tsup.config.bundled*
+vitest.config.ts.timestamp*
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
@@ -81,7 +97,6 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
-.output
 
 # Gatsby files
 .cache/
@@ -92,8 +107,9 @@ dist
 # vuepress build output
 .vuepress/dist
 
-# vuepress v2.x temp directory
+# vuepress v2.x temp and cache directory
 .temp
+.cache
 
 # Sveltekit cache directory
 .svelte-kit/
@@ -125,9 +141,6 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# pnpm
-.pnpm-store
-
 # yarn v3
 .pnp.*
 .yarn/*
@@ -137,7 +150,6 @@ dist
 !.yarn/sdks
 !.yarn/versions
 
-# Vite files
+# Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-.vite/

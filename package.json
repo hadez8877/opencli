@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "root",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build --concurrency=4",
+    "build:affected": "turbo run build --filter=...[origin/main] --concurrency=4",
+    "build:examples": "turbo run build --filter=\"@example/*\"",
+    "test": "turbo run test --concurrency=4",
+    "test:affected": "turbo run test --filter=...[origin/main] --concurrency=4",
+    "lint": "biome lint && eslint --cache --concurrency=auto",
+    "lint:fix": "biome lint --write --unsafe",
+    "format": "pnpm run format:code && pnpm run format:imports",
+    "format:code": "biome format --write && prettier -w \"**/*\" --ignore-unknown --cache",
+    "format:imports": "biome check --formatter-enabled=false --write",
+    "prepare": "is-ci || husky",
+    "update": "pnpm --recursive update --interactive",
+    "update:latest": "pnpm --recursive update --interactive --latest",
+    "create-package": "turbo gen create-package --args",
+    "release": "pnpm run build && changeset publish"
+  },
+  "author": "Fabricio Pasapera Viera (@Hadez)",
+  "keywords": [
+    "opencli",
+    "cli",
+    "command-line-interface",
+    "terminal",
+    "node"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadez8877/opencli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hadez8877/opencli/issues"
+  },
+  "funding": "https://github.com/hadez8877/opencli?sponsor",
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.0",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-angular": "^20.5.3",
+    "@types/lodash.merge": "^4.6.9",
+    "@types/node": "^25.6.2",
+    "eslint": "^10.3.0",
+    "eslint-config-neon": "^0.4.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "husky": "^9.1.7",
+    "is-ci": "^4.1.0",
+    "lodash.merge": "^4.6.2",
+    "prettier": "^3.8.3",
+    "tsup": "^8.5.1",
+    "turbo": "^2.9.12",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.59.2",
+    "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@11.0.9"
+}

@@ -1,0 +1,26 @@
+packages:
+  - 'templates/**/*'
+  - 'packages/**/*'
+  - 'scripts'
+  - 'website'
+  # Below excludes are only for Turbo because it doesn't respect gitignore like pnpm does
+  - '!**/.vercel/**'
+
+allowBuilds:
+  esbuild: true
+
+autoInstallPeers: false
+
+onlyBuiltDependencies:
+  - esbuild
+  - unrs-resolver
+
+peerDependencyRules:
+  allowAny:
+    - '*'
+  ignoreMissing:
+    - '*'
+
+publicHoistPattern:
+  - '*eslint*'
+  - '*prettier*'
