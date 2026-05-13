@@ -30,16 +30,17 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 		actions: [
 			{
 				type: 'add',
-				path: `${plop.getDestBasePath()}/../{{name}}/src/index.ts`,
-				template: "console.log('Hello, from @adbjs/{{name}}');",
+				// add the src/index.ts file
+				path: `../packages/{{name}}/src/index.ts`,
+				template: "console.log('Hello, from @opencli/{{name}}');",
 			},
 			{
 				type: 'add',
-				path: `${plop.getDestBasePath()}/../{{name}}/__tests__/.gitkeep`,
+				path: `../packages/{{name}}/__tests__/.gitkeep`,
 			},
 			{
 				type: 'addMany',
-				destination: `${plop.getDestBasePath()}/../{{name}}`,
+				destination: `../packages/{{name}}`,
 				templateFiles: ['templates/**'],
 				globOptions: { dot: true },
 				base: 'templates/default/',
@@ -47,7 +48,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 			},
 			{
 				type: 'modify',
-				path: `${plop.getDestBasePath()}/../../.github/labels.yml`,
+				path: `../.github/labels.yml`,
 				transform(content, answers) {
 					const labelsYAML = parseYAML(content) as LabelerData[];
 					labelsYAML.push({ name: `packages:${answers.name}`, color: 'fbca04' });
@@ -58,7 +59,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 			},
 			{
 				type: 'modify',
-				path: `${plop.getDestBasePath()}/../../.github/labeler.yml`,
+				path: `../.github/labeler.yml`,
 				transform(content, answers) {
 					const labelerYAML = parseYAML(content) as Record<string, Record<string, Record<string, string[]>[]>[]>;
 
@@ -75,7 +76,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 			},
 			{
 				type: 'modify',
-				path: `${plop.getDestBasePath()}/../../.github/issue-labeler.yml`,
+				path: `../.github/issue_labeler.yml`,
 				transform(content, answers) {
 					const issueLabelerYAML = parseYAML(content) as Record<string, string[]>;
 					issueLabelerYAML[`packages:${answers.name}`] = [
