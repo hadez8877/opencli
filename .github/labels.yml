@@ -1,6 +1,6 @@
 - name: actions
   description: Modify GitHub Actions workflows
-  color: eccea1
+  color: e99695
 - name: dependencies
   description: Pull requests that update a dependency file
   color: 0052cc
