@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "tinyglobby": "^0.2.16",
-    "yaml": "^2.8.4"
+    "yaml": "^2.9.0"
   }
 }
