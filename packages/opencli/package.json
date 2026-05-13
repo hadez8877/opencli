@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "opencli",
+  "version": "0.1.0",
+  "description": "OpenCLI is a library for building Command Line Interfaces (CLIs)",
+  "scripts": {
+    "build": "tsc --noEmit && tsup",
+    "test": "vitest run --config ../../vitest.config.ts"
+  },
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "contributors": [
+    "Fabricio Pasapera Viera (@Hadez)"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hadez8877/opencli.git",
+    "directory": "packages/opencli"
+  },
+  "bugs": {
+    "url": "https://github.com/hadez8877/opencli/issues"
+  },
+  "funding": "https://github.com/hadez8877/opencli?sponsor",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^9.39.1",
+    "eslint-config-neon": "^0.2.9",
+    "eslint-formatter-compact": "^9.0.1",
+    "eslint-formatter-pretty": "^7.0.0",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.1",
+    "turbo": "^2.6.3",
+    "typescript": "~5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
