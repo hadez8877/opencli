@@ -52,6 +52,7 @@
   "ignoreDeps": [
     // manually bumping deps
     "@biomejs/biome",
+    "typescript",
     "@types/node",
 
     // manually bumping workflow actions
