@@ -2,6 +2,7 @@ import type { PlopTypes } from '@turbo/gen';
 import { parse as parseYAML, stringify as stringifyYAML } from 'yaml';
 
 interface LabelerData {
+	description: string;
 	color: string;
 	name: string;
 }
@@ -51,7 +52,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 				path: `../.github/labels.yml`,
 				transform(content, answers) {
 					const labelsYAML = parseYAML(content) as LabelerData[];
-					labelsYAML.push({ name: `packages:${answers.name}`, color: 'fbca04' });
+					labelsYAML.push({ name: `packages:${answers.name}`, description: `Modify the ${answers.name} package`, color: 'fbca04' });
 					labelsYAML.sort((a, b) => a.name.localeCompare(b.name));
 
 					return stringifyYAML(labelsYAML);

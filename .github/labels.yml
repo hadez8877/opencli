@@ -1,2 +1,15 @@
+- name: actions
+  description: Modify GitHub Actions workflows
+  color: eccea1
+- name: dependencies
+  description: Pull requests that update a dependency file
+  color: 0052cc
 - name: packages:opencli
+  description: Modify the opencli package
+  color: fbca04
+- name: packages:scripts
+  description: Modify the scripts package
+  color: fbca04
+- name: packages:website
+  description: Modify the website
   color: fbca04
