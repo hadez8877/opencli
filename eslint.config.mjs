@@ -1,4 +1,3 @@
-import unocss from '@unocss/eslint-plugin';
 import common from 'eslint-config-neon/common';
 import node from 'eslint-config-neon/node';
 import prettier from 'eslint-config-neon/prettier';
@@ -70,11 +69,11 @@ export default defineConfig(
 		rules: { 'jsdoc/no-undefined-types': 0 },
 	},
 	{
-		files: [`packages/{create-adb}/**/*${commonFiles}`],
+		files: [`packages/cli/**/*${commonFiles}`],
 		rules: { 'n/no-sync': 0 },
 	},
 	{
-		files: [`packages/adb.js/**/*.{js,cjs}`],
+		files: [`packages/opencli/**/*.{js,cjs}`],
 		languageOptions: {
 			sourceType: 'commonjs',
 			parserOptions: {
@@ -117,7 +116,7 @@ export default defineConfig(
 		},
 	},
 	{
-		files: [`packages/adb.js/typings/*{d.ts,test-d.ts,d.mts,test-d.mts}`],
+		files: [`packages/opencli/typings/*{d.ts,test-d.ts,d.mts,test-d.mts}`],
 		rules: {
 			'@typescript-eslint/no-unsafe-declaration-merging': 0,
 			'@typescript-eslint/no-empty-object-type': 0,
@@ -155,17 +154,6 @@ export default defineConfig(
 			],
 		},
 	},
-	reactRuleset,
-	jsxa11yRuleset,
-	{
-		files: [`packages/ui/**/*${commonFiles}`],
-		plugins: { '@unocss': unocss },
-		rules: {
-			'@unocss/order': 2,
-		},
-	},
-	nextRuleset,
-	edgeRuleset,
 	{
 		files: ['**/*{js,mjs,cjs,jsx}'],
 		rules: { 'tsdoc/syntax': 0 },
