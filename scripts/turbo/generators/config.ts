@@ -52,7 +52,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 				path: `../.github/labels.yml`,
 				transform(content, answers) {
 					const labelsYAML = parseYAML(content) as LabelerData[];
-					labelsYAML.push({ name: `packages:${answers.name}`, description: `Modify the ${answers.name} package`, color: 'fbca04' });
+					labelsYAML.push({ name: `packages:${answers.name}`, description: `Modify the ${answers.name} package`, color: '5865f2' });
 					labelsYAML.sort((a, b) => a.name.localeCompare(b.name));
 
 					return stringifyYAML(labelsYAML);

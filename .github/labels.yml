@@ -1,15 +1,18 @@
 - name: actions
   description: Modify GitHub Actions workflows
-  color: eccea1
+  color: f5c9ff
 - name: dependencies
   description: Pull requests that update a dependency file
-  color: 0052cc
+  color: e0e3ff
 - name: packages:opencli
   description: Modify the opencli package
-  color: fbca04
+  color: 5865f2
 - name: packages:scripts
   description: Modify the scripts package
-  color: fbca04
-- name: packages:website
-  description: Modify the website
-  color: fbca04
+  color: 5865f2
+- name: website
+  description: Modify the landing page of the project
+  color: 35ed7e
+- name: website:docs
+  description: Modify the documentation of the project
+  color: 35ed7e

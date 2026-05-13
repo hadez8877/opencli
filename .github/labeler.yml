@@ -15,7 +15,7 @@ packages:scripts:
           - scripts/*
           - scripts/**/*
 
-packages:website:
+website:
   - changed-files:
       - any-glob-to-any-file:
           - website/*
