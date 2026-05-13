@@ -1,0 +1,3 @@
+packages:opencli:
+  - "### Which (website|package|website or package) is this (bug report|feature
+    request) for\\?\\n\\nopencli\\n"

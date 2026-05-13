@@ -1,0 +1,5 @@
+packages:opencli:
+  - changed-files:
+      - any-glob-to-any-file:
+          - packages/opencli/*
+          - packages/opencli/**/*
