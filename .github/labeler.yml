@@ -1,7 +1,9 @@
 # See https://github.com/actions/labeler
 
 actions:
-  - .github/workflows/**
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/workflows/**
 
 packages:opencli:
   - changed-files:
