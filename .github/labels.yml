@@ -4,6 +4,9 @@
 - name: dependencies
   description: Pull requests that update a dependency file
   color: e0e3ff
+- name: 'good first issue'
+  description: Good first issue for newcomers
+  color: c8ffef
 - name: packages:opencli
   description: Modify the opencli package
   color: 5865f2
