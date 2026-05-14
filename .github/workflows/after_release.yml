@@ -1,0 +1,47 @@
+name: New Release Notifier
+
+on:
+  release:
+    types:
+      - published
+
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: tag_name
+        required: true
+        type: string
+
+      prerelease:
+        description: prerelease
+        required: true
+        type: boolean
+
+      body:
+        description: body
+        type: string
+        default: ''
+
+jobs:
+  post_to_discord:
+    if: github.repository_owner == 'hadez8877'
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: get-content
+        name: Build message
+        uses: 2428392/gh-truncate-string-action@b3ff790d21cf42af3ca7579146eedb93c8fb0757 # v1.4.1
+        with:
+          stringToTruncate: |
+            📣 OpenCLI [${{ github.event.release.tag_name || inputs.tag_name }}](<${{ github.event.release.html_url || format('{0}/{1}/releases/tag/{2}', github.server_url, github.repository, inputs.tag_name) }}>) was just released!
+
+            ${{ github.event.release.body || inputs.body }}
+
+          maxLength: 2000
+          truncationSymbol: '...'
+
+      - name: Send to Discord
+        uses: tsickert/discord-webhook@c840d45a03a323fbc3f7507ac7769dbd91bfb164 # v5.3.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_RELEASE_NOTES }}
+          content: ${{ steps.get-content.outputs.string }}
