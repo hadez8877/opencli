@@ -1,4 +1,5 @@
 name: PR Triage
+
 on:
   pull_request_target:
     types:
@@ -6,20 +7,24 @@ on:
       - edited
       - reopened
       - synchronize
+
 jobs:
   label:
     name: Label
     if: github.event.action != 'edited'
     runs-on: ubuntu-latest
+
     steps:
       - name: Label pull request
         uses: actions/labeler@8558fd74291d67161a8a78ce36a881fa63b766a9 # v5
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           sync-labels: true
+
   validate-title:
     name: Validate title
     runs-on: ubuntu-latest
+    
     steps:
       - name: Validate pull request title
         env:
