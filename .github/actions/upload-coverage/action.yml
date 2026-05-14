@@ -1,0 +1,20 @@
+name: 'Upload Coverage'
+description: 'Uploads code coverage reports to codecov with separate flags for separate packages'
+
+inputs:
+  codecov_token:
+    description: 'Codecov token.'
+    required: true
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Upload OpenCLI Coverage
+      if: ${{ hashFiles('packages/opencli/coverage/cobertura-coverage.xml') != '' }}
+      uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6
+      with:
+        files: ./packages/opencli/coverage/cobertura-coverage.xml
+        disable_search: true
+        flags: opencli
+        token: ${{ inputs.CODECOV_TOKEN }}
