@@ -48,7 +48,7 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "@vitest/coverage-v8": "^4.1.6",
-    "eslint": "^10.3.0",
+    "eslint": "^10.4.0",
     "eslint-config-neon": "^0.4.0",
     "eslint-formatter-compact": "^9.0.1",
     "eslint-formatter-pretty": "^7.1.0",
