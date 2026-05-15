@@ -68,9 +68,6 @@ importers:
 
   packages/opencli:
     devDependencies:
-      '@biomejs/biome':
-        specifier: 2.4.15
-        version: 2.4.15
       '@types/node':
         specifier: ^24.10.1
         version: 24.12.4
