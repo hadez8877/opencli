@@ -30,7 +30,7 @@ jobs:
           package-manager-cache: false
 
       - name: Install dependencies
-        uses: ./github/actions/setup-pnpm
+        uses: ./.github/actions/setup-pnpm
 
       - name: Build dependencies (PR)
         if: ${{ github.event_name != 'push' }}
@@ -58,6 +58,6 @@ jobs:
 
       - name: Upload Coverage
         if: github.repository_owner == 'hadez8877'
-        uses: ./github/actions/upload-coverage
+        uses: ./.github/actions/upload-coverage
         with:
           codecov_token: ${{ secrets.CODECOV_TOKEN }}
