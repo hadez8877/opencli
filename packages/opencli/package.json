@@ -5,7 +5,8 @@
   "description": "OpenCLI is a library for building Command Line Interfaces (CLIs)",
   "scripts": {
     "build": "tsc --noEmit && tsup",
-    "test": "vitest run --config ../../vitest.config.ts"
+    "test": "vitest run --config ../../vitest.config.ts",
+    "lint": "biome lint . && eslint --cache --concurrency=auto ."
   },
   "exports": {
     ".": {
@@ -45,6 +46,7 @@
   "funding": "https://github.com/hadez8877/opencli?sponsor",
   "dependencies": {},
   "devDependencies": {
+    "@biomejs/biome": "2.4.15",
     "@types/node": "^24.10.1",
     "@vitest/coverage-v8": "^4.1.6",
     "eslint": "^10.3.0",

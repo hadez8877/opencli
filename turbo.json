@@ -30,6 +30,23 @@
 			],
 			"outputs": ["coverage/**"],
 			"outputLogs": "new-only"
+		},
+    "lint": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"../../biome.json",
+				"../../eslint.config.mjs",
+				"../../prettier.config.mjs",
+				"../../tsconfig.eslint.json",
+				".prettierrc.js",
+				"bin/**",
+				"src/**",
+				"scripts/**",
+				"package.json",
+				"tsconfig.eslint.json"
+			],
+			"outputs": [],
+			"outputLogs": "errors-only"
 		}
 	}
 }
