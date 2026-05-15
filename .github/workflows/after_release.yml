@@ -23,7 +23,7 @@ on:
         default: ''
 
 jobs:
-  post_to_discord:
+  post-to-discord:
     if: github.repository_owner == 'hadez8877'
     runs-on: ubuntu-latest
 

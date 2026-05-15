@@ -1,0 +1,132 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  merge_group:
+  pull_request:
+    paths-ignore:
+      - '.vscode/**'
+      - '**/*.md'
+      - '.github/ISSUE_TEMPLATE/**'
+
+permissions: {}
+
+# Automatically cancel older in-progress jobs on the same branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
+  cancel-in-progress: true
+defaults:
+  run:
+    shell: bash
+
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+  FORCE_COLOR: true
+
+jobs:
+  build:
+    name: "Build: ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    permissions:
+      contents: read # Checkout only
+    strategy:
+      matrix:
+        # windows-latest is still windows-2022 for some reason, even though the windows-2025 image is GA
+        OS: [ubuntu-latest, windows-2025]
+        NODE_VERSION: [22]
+      fail-fast: true
+    steps:
+      # Disable crlf so all OS can share the same Turbo cache
+      # https://github.com/actions/checkout/issues/135
+      - name: Disable git crlf
+        run: git config --global core.autocrlf false
+
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup PNPM
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Setup node@${{ matrix.NODE_VERSION }}
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: ${{ matrix.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: Build Packages (PR)
+        if: ${{ github.event_name != 'push' }}
+        run: pnpm exec turbo run build --filter="...[origin/${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || 'main' }}]" --concurrency=4
+
+      - name: Build Packages (Push)
+        if: ${{ github.event_name == 'push' }}
+        run: pnpm exec turbo run build --filter="...[HEAD^1]" --concurrency=4
+
+  linters:
+    name: Linters
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read # Checkout only
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup PNPM
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24.15.0
+          cache: "pnpm"
+
+      - name: Linters (PR)
+        if: ${{ github.event_name != 'push' }}
+        run: pnpm exec turbo run lint --filter="...[origin/${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || 'main' }}]" --concurrency=4 -- --format=compact
+
+      - name: Linters (Push)
+        if: ${{ github.event_name == 'push' }}
+        run: pnpm exec turbo run lint --filter="...[HEAD^1]" --concurrency=4 -- --format=compact
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup PNPM
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24.15.0
+          cache: "pnpm"
+
+      - name: Tests (PR)
+        if: ${{ github.event_name != 'push' }}
+        run: pnpm exec turbo run test --filter="...[origin/${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || 'main' }}]" --concurrency=4
+
+      - name: Tests (Push)
+        if: ${{ github.event_name == 'push' }}
+        run: pnpm exec turbo run test --filter="...[HEAD^1]" --concurrency=4
+
+
+  upload-coverage:
+    name: Upload Coverage
+    runs-on: ubuntu-latest
+    needs: tests
+    if: github.repository_owner == 'hadez8877'
+    steps:
+      - name: Upload Coverage
+        uses: ./.github/actions/upload-coverage
+        with:
+          codecov_token: ${{ secrets.CODECOV_TOKEN }}
