@@ -16,6 +16,9 @@ onlyBuiltDependencies:
   - esbuild
   - unrs-resolver
 
+patchedDependencies:
+  '@changesets/get-github-info@0.7.0': patches/@changesets__get-github-info@0.7.0.patch
+
 peerDependencyRules:
   allowAny:
     - '*'
