@@ -28,24 +28,6 @@ env:
   FORCE_COLOR: true
 
 jobs:
-  changes:
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: read # Required by dorny/paths-filter to read changed files
-    outputs:
-      opencli-types: ${{ steps.filter.outputs.opencli-types }}
-      ci: ${{ steps.filter.outputs.ci }}
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
-        id: filter
-        with:
-          filters: |
-            opencli-types:
-              - 'packages/opencli/types/**'
-            ci:
-              - '.github/workflows/ci.yml'
-
   build:
     name: 'Build: ${{ matrix.os }}'
     runs-on: ${{ matrix.os }}
