@@ -13,7 +13,7 @@ jobs:
     permissions:
       contents: read # Checkout only
     container:
-      image: semgrep/semgrep@sha256:40579a2e70910d891959a4868711ba0399293949a2f1f141ddb5002d5fc7dd0f # v1.157.0
+      image: semgrep/semgrep@sha256:f682953ce85e3725f4a4dd94bd7ad13e570bb6b2c7a8cf7c6e38a9eac89239b2 # v1.157.0
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
       - run: semgrep scan --config=auto
