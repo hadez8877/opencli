@@ -1,4 +1,4 @@
-actions:
+'actions':
   - changed-files:
       - any-glob-to-any-file:
           - .github/workflows/**
@@ -12,7 +12,7 @@ actions:
       - any-glob-to-any-file:
           - scripts/*
           - scripts/**/*
-website:
+'website':
   - changed-files:
       - any-glob-to-any-file:
           - website/*
