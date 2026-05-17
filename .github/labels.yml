@@ -24,7 +24,7 @@
   color: 35ed7e
 - name: 'RFC: Implementing'
   description: RFC is currently being worked on
-  color: ffe14c
+  color: ffb14c
 - name: 'RFC: Open'
   description: RFC is open for discussion
   color: ffe14c
