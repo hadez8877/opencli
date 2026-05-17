@@ -1,12 +1,12 @@
-packages:opencli:
-  - "### Which (website|package|website or package) is this (bug report|feature
-    request) for\\?\\n\\nopencli\\n"
-packages:scripts:
-  - "### Which (website|package|website or package) is this (bug report|feature
-    request) for\\?\\n\\nscripts\\n"
+'pkg: opencli':
+  - '### Which (website|package|website or package) is this (bug report|feature
+    request) for\?\n\nopencli\n'
+'pkg: scripts':
+  - '### Which (website|package|website or package) is this (bug report|feature
+    request) for\?\n\nscripts\n'
 website:
-  - "### Which (website|package|website or package) is this (bug report|feature
-    request) for\\?\\n\\nwebsite\\n"
+  - '### Which (website|package|website or package) is this (bug report|feature
+    request) for\?\n\nwebsite\n'
 website:docs:
-  - "### Which (website|package|website or package) is this (bug report|feature
-    request) for\\?\\n\\ndocs\\n"
+  - '### Which (website|package|website or package) is this (bug report|feature
+    request) for\?\n\ndocs\n'

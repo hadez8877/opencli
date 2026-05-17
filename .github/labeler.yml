@@ -1,22 +1,17 @@
-# See https://github.com/actions/labeler
-
 actions:
   - changed-files:
       - any-glob-to-any-file:
           - .github/workflows/**
-
-packages:opencli:
+'pkg: opencli':
   - changed-files:
       - any-glob-to-any-file:
           - packages/opencli/*
           - packages/opencli/**/*
-
-packages:scripts:
+'pkg: scripts':
   - changed-files:
       - any-glob-to-any-file:
           - scripts/*
           - scripts/**/*
-
 website:
   - changed-files:
       - any-glob-to-any-file:
