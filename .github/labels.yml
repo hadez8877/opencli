@@ -31,6 +31,6 @@
 - name: 'website'
   description: Modify components/landing page of the project
   color: 35ed7e
-- name: 'website:docs'
+- name: 'website: docs'
   description: Modify MDX documentation files
   color: 35ed7e
