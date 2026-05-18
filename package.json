@@ -38,7 +38,7 @@
   "funding": "https://github.com/hadez8877/opencli?sponsor",
   "devDependencies": {
     "@biomejs/biome": "2.4.15",
-    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.29.8",
     "@commitlint/cli": "^21.0.1",
     "@commitlint/config-angular": "^21.0.1",
