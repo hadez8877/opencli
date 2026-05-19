@@ -1,6 +1,6 @@
 # Contributor Manual
 
-Welcome, and thank you for considering contributing to OpenCLI! This document covers everything you need to know to get started.
+Welcome, and thank you for considering contributing to OpenCLI! We’re excited to have you here. This guide covers everything you need to know to get started, from setting up the project to submitting your first contribution. Every contribution, big or small, helps improve OpenCLI for everyone.
 
 > [!Tip]
 >
