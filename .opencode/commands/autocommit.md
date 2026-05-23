@@ -1,7 +1,6 @@
 ---
 description: Create semantic commits from all available changes
 agent: build
-model: opencode/minimax-m2.5-free
 ---
 
 # Git Create Semantic Commits
