@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "opencli",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "OpenCLI is a library for building Command Line Interfaces (CLIs)",
   "scripts": {
     "build": "tsc --noEmit && tsup",
