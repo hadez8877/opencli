@@ -1,1 +1,1 @@
-console.log('Hello, from @opencli/opencli');
+// console.log('Hello, from @opencli/opencli');
