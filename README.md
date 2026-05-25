@@ -65,7 +65,7 @@ Join us on [Discord][discord-server-url] to meet other maintainers. We'll help y
 [npm-version-badge]: https://img.shields.io/npm/v/opencli
 
 [ci-url]: https://github.com/hadez8877/opencli/actions/workflows/ci.yml
-[discord-server-url]: https://discord.gg/ZmKUnugG6sk
+[discord-server-url]: https://discord.gg/wKtTvN37F3
 [license-url]: https://github.com/hadez8877/opencli/blob/main/LICENSE
 [npm-version-url]: https://www.npmjs.com/package/opencli
 [website-url]: https://opencli.vercel.com

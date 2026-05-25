@@ -254,8 +254,11 @@ As a contributor, **you only need to add changesets** — the rest is handled by
 
 If you have a question, need support, or want to discuss an idea before opening a PR:
 
-- **Discord**: Join our [Discord Community Server](https://discord.gg/ZmKUnugG6s) for real-time chat and support.
-- **GitHub Discussions**: Use the [GitHub Discussions](https://github.com/hadez8877/opencli/discussions) for questions and ideas.
+- **Discord**: Join our [Discord Community Server][discord-server-url] for real-time chat and support.
+- **GitHub Discussions**: Use the [GitHub Discussions][github-discussions-url] for questions and ideas.
 - **GitHub Issues**: Report bugs or request features using the provided issue templates.
 
 Please do **not** open a blank issue — use the templates and fill them out completely. This helps maintainers triage faster.
+
+[discord-server-url]: https://discord.gg/wKtTvN37F3
+[github-discussions-url]: https://github.com/hadez8877/opencli/discussions
