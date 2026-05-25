@@ -48,15 +48,6 @@
       "matchFileNames": ["packages/create-cli/**"]
     },
     //#endregion
-
-    //#region Minor packages (few external deps, rarely trigger updates)
-    {
-      "groupName": "minor packages",
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchFileNames": ["scripts/turbo/generators/templates/default/package.json.hbs"]
-    }
-    //#endregion
   ],
   "ignoreDeps": [
     // manually bumping deps
