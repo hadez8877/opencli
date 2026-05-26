@@ -1,9 +1,9 @@
+import { defineConfig } from 'eslint/config';
 import common from 'eslint-config-neon/common';
 import node from 'eslint-config-neon/node';
 import prettier from 'eslint-config-neon/prettier';
 import typescript from 'eslint-config-neon/typescript';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-import { defineConfig } from 'eslint/config';
 import merge from 'lodash.merge';
 
 const commonFiles = '{js,mjs,cjs,ts,mts,cts,jsx,tsx}';
@@ -69,7 +69,7 @@ export default defineConfig(
 		rules: { 'jsdoc/no-undefined-types': 0 },
 	},
 	{
-		files: [`packages/cli/**/*${commonFiles}`],
+		files: [`packages/create-cli/**/*${commonFiles}`],
 		rules: { 'n/no-sync': 0 },
 	},
 	{

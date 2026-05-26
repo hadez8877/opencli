@@ -52,7 +52,7 @@ This directory is a Git monorepo containing a `pnpm` workspace:
 
 In error stack traces, built files from workspace packages in `node_modules/` map to TypeScript source in `packages/`:
 
-- `node_modules/astro/dist/...` → `packages/astro/src/...`
+- `node_modules/opencli/dist/...` → `packages/opencli/src/...`
 
 Edits to source files take effect after rebuilding the package via `pnpm build`.
 
