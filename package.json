@@ -50,6 +50,7 @@
     "husky": "^9.1.7",
     "is-ci": "^4.1.0",
     "lodash.merge": "^4.6.2",
+    "@opencli/scripts": "workspace:",
     "prettier": "^3.8.3",
     "tsup": "^8.5.1",
     "turbo": "^2.9.14",
