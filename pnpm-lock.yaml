@@ -74,6 +74,9 @@ importers:
 
   packages/opencli:
     devDependencies:
+      '@opencli/scripts':
+        specifier: 'workspace:'
+        version: link:../../scripts
       '@types/node':
         specifier: ^24.10.1
         version: 24.12.4
