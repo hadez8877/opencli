@@ -64,7 +64,7 @@ jobs:
         if: steps.changesets.outputs.published == 'true'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_RELEASE_NOTES }}
-        run: node scripts/github/announce.js '${{ steps.changesets.outputs.publishedPackages }}'
+        run: node scripts/github-actions/announce.js '${{ steps.changesets.outputs.publishedPackages }}'
 
       - name: Send message on Discord
         if: steps.changesets.outputs.published == 'true'
