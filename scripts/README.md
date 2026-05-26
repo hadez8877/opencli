@@ -1,6 +1,6 @@
-# `@opencli/{{name}}`
+# `@opencli/scripts`
 
-{{description}}
+A set of scripts that we use for our workflows
 
 ---
 

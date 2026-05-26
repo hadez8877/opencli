@@ -147,7 +147,7 @@ async function generateMessage() {
 	if (message.length < 2000) {
 		return message;
 	} else {
-		const { name, version, url } = packages.find((pkg) => pkg.name === 'astro') ?? packages[0];
+		const { name, version, url } = packages.find((pkg) => pkg.name === 'opencli') ?? packages[0];
 		message = `${emoji} Some ${descriptor} ${pluralize(verb)}\n\n`;
 		message += `• \`${name}@${version}\` Read the [release notes →](<${url}>)\n`;
 
