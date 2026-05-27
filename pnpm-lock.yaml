@@ -80,9 +80,6 @@ importers:
 
   packages/opencli:
     devDependencies:
-      '@opencli/scripts':
-        specifier: 'workspace:'
-        version: link:../../scripts
       '@types/node':
         specifier: ^24.10.1
         version: 24.12.4
@@ -101,6 +98,9 @@ importers:
       eslint-formatter-pretty:
         specifier: ^7.1.0
         version: 7.1.0
+      opencli-scripts:
+        specifier: 'workspace:'
+        version: link:../../scripts
       prettier:
         specifier: ^3.8.3
         version: 3.8.3

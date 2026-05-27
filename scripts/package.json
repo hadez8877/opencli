@@ -1,5 +1,5 @@
 {
-	"name": "@opencli/scripts",
+	"name": "opencli-scripts",
 	"version": "0.1.0-beta.1",
 	"description": "A set of scripts that we use for our workflows",
 	"private": true,
