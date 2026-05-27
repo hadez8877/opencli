@@ -19,7 +19,7 @@
 		"update": "pnpm --recursive update --interactive",
 		"update:latest": "pnpm --recursive update --interactive --latest",
 		"create-package": "turbo gen create-package --args",
-		"version": "changeset version && node ./scripts/deps/update-example-versions.js && pnpm install --no-frozen-lockfile && pnpm run format",
+		"version": "changeset version && node ./scripts/deps/update-example-versions.mjs && pnpm install --no-frozen-lockfile && pnpm run format",
 		"preinstall": "npx only-allow pnpm"
 	},
 	"workspaces": [
