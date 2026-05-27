@@ -63,7 +63,6 @@ Join us on [Discord][discord-server-url] to meet other maintainers. We'll help y
 [ci-badge]: https://github.com/hadez8877/opencli/actions/workflows/ci.yml/badge.svg
 [license-badge]: https://img.shields.io/github/license/hadez8877/opencli?color=blue
 [npm-version-badge]: https://img.shields.io/npm/v/opencli
-
 [ci-url]: https://github.com/hadez8877/opencli/actions/workflows/ci.yml
 [discord-server-url]: https://discord.gg/wKtTvN37F3
 [license-url]: https://github.com/hadez8877/opencli/blob/main/LICENSE

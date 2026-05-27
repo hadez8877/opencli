@@ -31,7 +31,7 @@ const verbs = [
 	'comin’ your way!',
 	'comin’ atcha!',
 	'comin’ in hot!',
-  'freshly minted on the blockchain! (jk)',
+	'freshly minted on the blockchain! (jk)',
 	'[is] out (now with 100% more reticulated splines!)',
 	'(as seen on TV!)',
 	'just dropped!',
@@ -46,7 +46,7 @@ const verbs = [
 	'[has] landed!',
 	'landed! The internet just got a little more fun.',
 	'– from our family to yours.',
-	'– go forth and build!',
+	'– go forth and build!'
 ];
 const extraVerbs = [
 	'new',
@@ -59,7 +59,7 @@ const extraVerbs = [
 	'live now',
 	'hot and fresh',
 	'for you',
-	"comin' atcha",
+	"comin' atcha"
 ];
 
 function item(items) {
@@ -68,12 +68,12 @@ function item(items) {
 
 const plurals = new Map([
 	['is', 'are'],
-	['has', 'have'],
+	['has', 'have']
 ]);
 
 function pluralize(text) {
 	return text.replace(/(\[([^\]]+)\])/gm, (_, _full, match) =>
-		plurals.has(match) ? plurals.get(match) : `${match}s`,
+		plurals.has(match) ? plurals.get(match) : `${match}s`
 	);
 }
 
@@ -96,7 +96,7 @@ async function generatePackageMap() {
 	const packages = await glob(['*/package.json', '*/*/package.json'], {
 		cwd: fileURLToPath(packageRoot),
 		expandDirectories: false,
-		ignore: ['**/node_modules/**'],
+		ignore: ['**/node_modules/**']
 	});
 
 	await Promise.all(
@@ -104,7 +104,7 @@ async function generatePackageMap() {
 			const pkgFile = fileURLToPath(new URL(pkg, packageRoot));
 			const content = await readFile(pkgFile).then((res) => JSON.parse(res.toString()));
 			packageMap.set(content.name, `./packages/${pkg.replace('/package.json', '')}`);
-		}),
+		})
 	);
 }
 
@@ -121,9 +121,9 @@ async function generateMessage() {
 			return {
 				name,
 				version,
-				url: new URL(encodeURIComponent(`${name}@${version}`), baseUrl).toString(),
+				url: new URL(encodeURIComponent(`${name}@${version}`), baseUrl).toString()
 			};
-		}),
+		})
 	);
 
 	const emoji = item(emojis);
@@ -135,7 +135,7 @@ async function generateMessage() {
 	if (packages.length === 1) {
 		const { name, version, url } = packages[0];
 		message += `${emoji} \`${name}@${version}\` ${singularlize(
-			verb,
+			verb
 		)}\nRead the [release notes →](<${url}>)\n`;
 	} else {
 		message += `${emoji} Some ${descriptor} ${pluralize(verb)}\n\n`;

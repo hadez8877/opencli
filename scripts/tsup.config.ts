@@ -5,5 +5,5 @@ export default [
 		entry: ['bin/sortLabels.ts'],
 		format: 'esm',
 		minify: 'terser'
-	}),
+	})
 ];

@@ -19,8 +19,12 @@ const typeScriptRuleset = merge(...typescript, {
 		parserOptions: {
 			warnOnUnsupportedTypeScriptVersion: false,
 			allowAutomaticSingleRunInference: true,
-			project: ['tsconfig.eslint.json', 'website/tsconfig.eslint.json', 'packages/*/tsconfig.eslint.json'],
-		},
+			project: [
+				'tsconfig.eslint.json',
+				'website/tsconfig.eslint.json',
+				'packages/*/tsconfig.eslint.json'
+			]
+		}
 	},
 	rules: {
 		'@typescript-eslint/consistent-type-definitions': [2, 'interface'],
@@ -31,19 +35,23 @@ const typeScriptRuleset = merge(...typescript, {
 				format: ['PascalCase'],
 				custom: {
 					regex: '^\\w{3,}',
-					match: true,
-				},
-			},
-		],
+					match: true
+				}
+			}
+		]
 	},
 	settings: {
 		'import-x/resolver-next': [
 			createTypeScriptImportResolver({
 				noWarnOnMultipleProjects: true,
-				project: ['tsconfig.eslint.json', 'website/tsconfig.eslint.json', 'packages/*/tsconfig.eslint.json'],
-			}),
-		],
-	},
+				project: [
+					'tsconfig.eslint.json',
+					'website/tsconfig.eslint.json',
+					'packages/*/tsconfig.eslint.json'
+				]
+			})
+		]
+	}
 });
 
 const prettierRuleset = merge(...prettier, { files: [`**/*${commonFiles}`] });
@@ -58,19 +66,19 @@ export default defineConfig(
 			'templates/',
 			'**/dist/',
 			'**/templates/',
-			'**/coverage/',
-		],
+			'**/coverage/'
+		]
 	},
 	commonRuleset,
 	nodeRuleset,
 	typeScriptRuleset,
 	{
 		files: ['**/*{ts,mts,cts,tsx}'],
-		rules: { 'jsdoc/no-undefined-types': 0 },
+		rules: { 'jsdoc/no-undefined-types': 0 }
 	},
 	{
 		files: [`packages/create-cli/**/*${commonFiles}`],
-		rules: { 'n/no-sync': 0 },
+		rules: { 'n/no-sync': 0 }
 	},
 	{
 		files: [`packages/opencli/**/*.{js,cjs}`],
@@ -78,22 +86,22 @@ export default defineConfig(
 			sourceType: 'commonjs',
 			parserOptions: {
 				ecmaFeatures: {
-					impliedStrict: false,
-				},
-			},
+					impliedStrict: false
+				}
+			}
 		},
 		settings: {
 			jsdoc: {
 				tagNamePreference: {
 					augments: 'extends',
 					fires: 'emits',
-					function: 'method',
+					function: 'method'
 				},
 				preferredTypes: {
 					object: 'Object',
-					null: 'void',
-				},
-			},
+					null: 'void'
+				}
+			}
 		},
 		rules: {
 			'jsdoc/no-undefined-types': 0,
@@ -105,15 +113,15 @@ export default defineConfig(
 				'error',
 				{
 					selector: "AssignmentExpression[left.object.name='module'][left.property.name='exports']",
-					message: 'Use named exports instead of module.exports',
+					message: 'Use named exports instead of module.exports'
 				},
 				{
 					selector:
 						"VariableDeclarator[init.callee.name='require'][init.arguments.0.value=/^\\./]:not([id.type='ObjectPattern'])",
-					message: 'Use object destructuring when requiring local modules',
-				},
-			],
-		},
+					message: 'Use object destructuring when requiring local modules'
+				}
+			]
+		}
 	},
 	{
 		files: [`packages/opencli/typings/*{d.ts,test-d.ts,d.mts,test-d.mts}`],
@@ -128,35 +136,38 @@ export default defineConfig(
 				{
 					selector:
 						'MethodDefinition[key.name!=on][key.name!=once][key.name!=off] > TSEmptyBodyFunctionExpression > Identifier :not(TSTypeOperator[operator=readonly]) > TSArrayType',
-					message: 'Array parameters on methods must be readonly',
+					message: 'Array parameters on methods must be readonly'
 				},
 				{
 					selector:
 						'MethodDefinition > TSEmptyBodyFunctionExpression > Identifier TSTypeReference > Identifier[name=Collection]',
-					message: 'Parameters of type Collection on methods must use ReadonlyCollection',
+					message: 'Parameters of type Collection on methods must use ReadonlyCollection'
 				},
 				{
-					selector: 'TSDeclareFunction > Identifier :not(TSTypeOperator[operator=readonly]) > TSArrayType',
-					message: 'Array parameters on functions must be readonly',
+					selector:
+						'TSDeclareFunction > Identifier :not(TSTypeOperator[operator=readonly]) > TSArrayType',
+					message: 'Array parameters on functions must be readonly'
 				},
 				{
 					selector: 'TSDeclareFunction Identifier TSTypeReference > Identifier[name=Collection]',
-					message: 'Parameters of type Collection on functions must use ReadonlyCollection',
+					message: 'Parameters of type Collection on functions must use ReadonlyCollection'
 				},
 				{
-					selector: 'TSInterfaceDeclaration TSPropertySignature :not(TSTypeOperator[operator=readonly]) > TSArrayType',
-					message: 'Array properties on interfaces must be readonly',
+					selector:
+						'TSInterfaceDeclaration TSPropertySignature :not(TSTypeOperator[operator=readonly]) > TSArrayType',
+					message: 'Array properties on interfaces must be readonly'
 				},
 				{
-					selector: 'TSInterfaceDeclaration TSPropertySignature TSTypeReference > Identifier[name=Collection]',
-					message: 'Interface properties of type Collection must use ReadonlyCollection',
-				},
-			],
-		},
+					selector:
+						'TSInterfaceDeclaration TSPropertySignature TSTypeReference > Identifier[name=Collection]',
+					message: 'Interface properties of type Collection must use ReadonlyCollection'
+				}
+			]
+		}
 	},
 	{
 		files: ['**/*{js,mjs,cjs,jsx}'],
-		rules: { 'tsdoc/syntax': 0 },
+		rules: { 'tsdoc/syntax': 0 }
 	},
-	prettierRuleset,
+	prettierRuleset
 );

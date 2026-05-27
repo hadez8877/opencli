@@ -2,7 +2,7 @@ name: Good First Issue Notifier
 
 on:
   issues:
-    types: 
+    types:
       - labeled
 
 jobs:
