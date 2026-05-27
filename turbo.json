@@ -7,7 +7,14 @@
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],
-			"inputs": ["bin/**", "src/**", "scripts/**", "package.json", "tsconfig.json", "tsup.config.ts"],
+			"inputs": [
+				"bin/**",
+				"src/**",
+				"scripts/**",
+				"package.json",
+				"tsconfig.json",
+				"tsup.config.ts"
+			],
 			"outputs": ["dist/**"],
 			"outputLogs": "errors-only"
 		},
@@ -31,7 +38,7 @@
 			"outputs": ["coverage/**"],
 			"outputLogs": "new-only"
 		},
-    "lint": {
+		"lint": {
 			"dependsOn": ["^build"],
 			"inputs": [
 				"../../biome.json",

@@ -173,23 +173,24 @@ This project follows the **Angular Commit Convention** enforced by [commitlint](
 
 **Allowed types:**
 
-| Type | When to use |
-|------|-------------|
-| `build` | Build system or dependency changes |
-| `chore` | Maintenance tasks |
-| `ci` | CI/CD configuration changes |
-| `docs` | Documentation changes only |
-| `examples` | Example templates updates |
-| `feat` | A new feature |
-| `fix` | A bug fix |
-| `perf` | Performance improvement |
+| Type       | When to use                         |
+| ---------- | ----------------------------------- |
+| `build`    | Build system or dependency changes  |
+| `chore`    | Maintenance tasks                   |
+| `ci`       | CI/CD configuration changes         |
+| `docs`     | Documentation changes only          |
+| `examples` | Example templates updates           |
+| `feat`     | A new feature                       |
+| `fix`      | A bug fix                           |
+| `perf`     | Performance improvement             |
 | `refactor` | Code change without behavior change |
-| `revert` | Reverting a previous commit |
-| `style` | Formatting, no logic change |
-| `test` | Adding or updating tests |
-| `types` | Type definition changes |
+| `revert`   | Reverting a previous commit         |
+| `style`    | Formatting, no logic change         |
+| `test`     | Adding or updating tests            |
+| `types`    | Type definition changes             |
 
 **Rules:**
+
 - The subject must start with a lowercase letter.
 - No period at the end of the description.
 - Keep the header under 100 characters.
@@ -216,6 +217,7 @@ pnpm changeset
 ```
 
 Follow the interactive prompts to:
+
 1. Select which packages are affected.
 2. Choose the bump type (`patch`, `minor`, or `major`).
 3. Write a summary of the change (this becomes part of the changelog).
@@ -243,6 +245,7 @@ When you open the PR, fill out the pull request template. Screenshots are welcom
 Releases are handled by maintainers and are automated via the CI pipeline.
 
 The flow is:
+
 1. Changesets accumulated in PRs are collected on `main`.
 2. A release PR is opened automatically that bumps versions and updates changelogs.
 3. Once the release PR is merged, packages are published to npm.

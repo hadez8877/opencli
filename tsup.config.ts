@@ -16,7 +16,7 @@ export function createTsupConfig({
 	terserOptions = {
 		mangle: false,
 		keep_classnames: true,
-		keep_fnames: true,
+		keep_fnames: true
 	},
 	splitting = false,
 	keepNames = true,
@@ -24,7 +24,7 @@ export function createTsupConfig({
 	sourcemap = true,
 	esbuildPlugins = [],
 	treeshake = false,
-	outDir = 'dist',
+	outDir = 'dist'
 }: Options = {}) {
 	return defineConfig({
 		entry,
@@ -45,6 +45,6 @@ export function createTsupConfig({
 		sourcemap,
 		esbuildPlugins,
 		treeshake,
-		outDir,
+		outDir
 	});
 }

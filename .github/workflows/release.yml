@@ -36,7 +36,7 @@ jobs:
 
       - name: Build Packages
         run: pnpm exec turbo run build --filter="...[HEAD^1]" --concurrency=4
-      
+
       - name: Setup git commiter
         id: commiter
         uses: ./.github/actions/setup-git-commiter
@@ -51,8 +51,8 @@ jobs:
           # Note: pnpm install after versioning is necessary to refresh lockfile
           version: pnpm run version
           publish: pnpm exec changeset publish
-          commit: "[ci] release"
-          title: "[ci] release"
+          commit: '[ci] release'
+          title: '[ci] release'
         env:
           # Needs access to push to main
           GITHUB_TOKEN: ${{ steps.commiter.outputs.token }}
@@ -72,7 +72,7 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_RELEASE_NOTES }}
         uses: Ilshidur/action-discord@d2594079a10f1d6739ee50a2471f0ca57418b554 # 0.4.0
         with:
-          args: "${{ steps.message.outputs.DISCORD_MESSAGE }}"
+          args: '${{ steps.message.outputs.DISCORD_MESSAGE }}'
 
       - name: Dispatch post-release event
         if: steps.changesets.outputs.published == 'true' && github.ref_name == 'main'
@@ -80,5 +80,3 @@ jobs:
         with:
           token: ${{ steps.commiter.outputs.token }}
           event-type: release-published
-
-

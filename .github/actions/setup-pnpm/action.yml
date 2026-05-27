@@ -3,7 +3,7 @@ description: 'Setup pnpm with cache and install dependencies'
 
 runs:
   using: 'composite'
-  
+
   steps:
     - name: Set up swap space
       if: runner.os == 'Linux'

@@ -6,7 +6,7 @@ export default defineConfig({
 		passWithNoTests: true,
 		typecheck: {
 			enabled: true,
-			tsconfig: './tsconfig.test.json',
+			tsconfig: './tsconfig.test.json'
 		},
 		coverage: {
 			enabled: true,
@@ -20,8 +20,8 @@ export default defineConfig({
 				// All index files that *should* only contain exports from other files
 				'**/index.{js,ts}',
 				// All exports files that make subpackages available as submodules
-				'**/exports/*.{js,ts}',
-			],
-		},
-	},
+				'**/exports/*.{js,ts}'
+			]
+		}
+	}
 });

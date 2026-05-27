@@ -1,18 +1,18 @@
 /** @type {import('prettier').Config} */
 module.exports = {
-	...require('../prettier.config.mjs'),
+	...require('../prettier.config.mjs').default,
 	overrides: [
 		{
 			files: 'turbo/generators/templates/{package.json.hbs}',
 			options: {
-				parser: 'json',
-			},
+				parser: 'json'
+			}
 		},
 		{
 			files: 'turbo/generators/templates/{.prettierrc.js.hbs}',
 			options: {
-				parser: 'babel',
-			},
-		},
-	],
+				parser: 'babel'
+			}
+		}
+	]
 };

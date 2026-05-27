@@ -3,3 +3,4 @@ CHANGELOG.md
 tsup.config.bundled*
 vitest.config.ts.timestamp*
 pnpm-lock.yaml
+scripts/turbo/generators/templates/**/*

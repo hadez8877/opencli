@@ -1,66 +1,66 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    "schedule:weekly",
-    ":disablePeerDependencies",
-    "regexManagers:biomeVersions",
-    "helpers:pinGitHubActionDigestsToSemver"
-  ],
-  "labels": ["dependencies"],
-  "rangeStrategy": "bump",
-  "postUpdateOptions": ["pnpmDedupe"],
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "ignorePaths": ["**/node_modules/**"],
-  "packageRules": [
-    //#region Infra groups
-    {
-      "groupName": "lockfile maintenance",
-      "matchUpdateTypes": ["lockFileMaintenance"]
-    },
-    {
-      "groupName": "github-actions",
-      "matchManagers": ["github-actions"]
-    },
-    {
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["engines"],
-      "enabled": false
-    },
-    //#endregion
+	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
+	extends: [
+		'config:recommended',
+		'schedule:weekly',
+		':disablePeerDependencies',
+		'regexManagers:biomeVersions',
+		'helpers:pinGitHubActionDigestsToSemver'
+	],
+	labels: ['dependencies'],
+	rangeStrategy: 'bump',
+	postUpdateOptions: ['pnpmDedupe'],
+	lockFileMaintenance: {
+		enabled: true
+	},
+	ignorePaths: ['**/node_modules/**'],
+	packageRules: [
+		//#region Infra groups
+		{
+			groupName: 'lockfile maintenance',
+			matchUpdateTypes: ['lockFileMaintenance']
+		},
+		{
+			groupName: 'github-actions',
+			matchManagers: ['github-actions']
+		},
+		{
+			matchManagers: ['npm'],
+			matchDepTypes: ['engines'],
+			enabled: false
+		},
+		//#endregion
 
-    //#region Per-package groups (non-major only)
-    {
-      "groupName": "opencli",
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchFileNames": ["packages/opencli/**"]
-    },
-    //#endregion
+		//#region Per-package groups (non-major only)
+		{
+			groupName: 'opencli',
+			matchManagers: ['npm'],
+			matchUpdateTypes: ['minor', 'patch'],
+			matchFileNames: ['packages/opencli/**']
+		},
+		//#endregion
 
-    //#region Standalone packages
-    {
-      "groupName": "create-cli",
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchFileNames": ["packages/create-cli/**"]
-    },
-    //#endregion
-  ],
-  "ignoreDeps": [
-    // manually bumping deps
-    "@biomejs/biome",
-    "typescript",
-    "@types/node",
+		//#region Standalone packages
+		{
+			groupName: 'create-cli',
+			matchManagers: ['npm'],
+			matchUpdateTypes: ['minor', 'patch'],
+			matchFileNames: ['packages/create-cli/**']
+		}
+		//#endregion
+	],
+	ignoreDeps: [
+		// manually bumping deps
+		'@biomejs/biome',
+		'typescript',
+		'@types/node',
 
-    // manually bumping workflow actions
-    "actions/labeler",
+		// manually bumping workflow actions
+		'actions/labeler',
 
-    // follow vite deps version
-    "postcss-load-config",
-    "esbuild"
-  ],
-  "minimumReleaseAge": "3 days"
+		// follow vite deps version
+		'postcss-load-config',
+		'esbuild'
+	],
+	minimumReleaseAge: '3 days'
 }
