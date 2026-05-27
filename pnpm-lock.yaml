@@ -99,7 +99,7 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0
       opencli-scripts:
-        specifier: 'workspace:'
+        specifier: workspace:*
         version: link:../../scripts
       prettier:
         specifier: ^3.8.3

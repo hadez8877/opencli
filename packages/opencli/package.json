@@ -46,7 +46,7 @@
 	"funding": "https://github.com/hadez8877/opencli?sponsor",
 	"dependencies": {},
 	"devDependencies": {
-		"opencli-scripts": "workspace:",
+		"opencli-scripts": "workspace:*",
 		"@types/node": "^24.10.1",
 		"@vitest/coverage-v8": "^4.1.2",
 		"eslint": "^10.4.0",
