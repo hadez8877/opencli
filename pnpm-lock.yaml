@@ -26,9 +26,6 @@ importers:
       '@commitlint/config-angular':
         specifier: ^21.0.1
         version: 21.0.1
-      '@opencli/scripts':
-        specifier: 'workspace:'
-        version: link:scripts
       '@types/lodash.merge':
         specifier: ^4.6.9
         version: 4.6.9
