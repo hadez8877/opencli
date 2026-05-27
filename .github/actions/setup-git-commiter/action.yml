@@ -28,6 +28,7 @@ runs:
         app-id: ${{ inputs.opencli-app-id }}
         private-key: ${{ inputs.opencli-app-secret }}
         owner: ${{ github.repository_owner }}
+        permission-workflows: write
 
     - name: Configure git user
       run: |
