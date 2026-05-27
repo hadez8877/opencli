@@ -19,10 +19,12 @@ const packageToVersions = new Map();
 // Changeset detects workspace packages to publish via `workspaces` in package.json.
 // Although this conflicts with the `pnpm-workspace.yaml` config, it's easier to configure what gets
 // published through this field, so this file also respects this field when updating the versions.
-const workspaceDirs = (await glob(rootPackageJson.workspaces, {
-	onlyDirectories: true,
-	cwd: fileURLToPath(rootUrl)
-})).filter(dir => !dir.includes('node_modules'));
+const workspaceDirs = (
+	await glob(rootPackageJson.workspaces, {
+		onlyDirectories: true,
+		cwd: fileURLToPath(rootUrl)
+	})
+).filter((dir) => !dir.includes('node_modules'));
 for (const workspaceDir of workspaceDirs) {
 	const packageJsonPath = path.join(workspaceDir, './package.json');
 	const packageJson = await readAndParsePackageJson(packageJsonPath);

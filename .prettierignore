@@ -1,6 +1,32 @@
-CODEOWNERS
-CHANGELOG.md
-tsup.config.bundled*
-vitest.config.ts.timestamp*
-pnpm-lock.yaml
+# Deep Directories
+**/dist
+**/smoke
+**/node_modules
+**/fixtures
+**/fixture
+**/vendor
+**/.vercel
+**/.vscode-test
+
+# No need necessary to format
 scripts/turbo/generators/templates/**/*
+
+# Directories
+.github
+.changeset
+
+# Files
+pnpm-lock.yaml
+
+# Formatted by Biome
+**/*.json
+**/*.jsonc
+**/*.js
+**/*.ts
+**/*.tsx
+**/*.jsx
+**/*.mjs
+**/*.cjs
+**/*.css
+
+CHANGELOG.md

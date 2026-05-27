@@ -1,2 +1,5 @@
+'use strict';
+
 /** @type {import('prettier').Config} */
-module.exports = require('../../prettier.config.mjs').default;
+// eslint-disable-next-line no-restricted-syntax
+module.exports = require('../../../../prettier.config.mjs').default;
