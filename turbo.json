@@ -45,7 +45,7 @@
         "../../eslint.config.mjs",
         "../../prettier.config.mjs",
         "../../tsconfig.eslint.json",
-        ".prettierrc.js",
+        ".prettierrc.mjs",
         "bin/**",
         "src/**",
         "scripts/**",

@@ -1,10 +1,10 @@
-'use strict';
+import baseConfig from '../prettier.config.mjs';
 
 /** @type {import('prettier').Config} */
-// eslint-disable-next-line no-restricted-syntax
-module.exports = {
-	...require('../prettier.config.mjs').default,
+export default {
+	...baseConfig,
 	overrides: [
+		...baseConfig.overrides,
 		{
 			files: 'turbo/generators/templates/{package.json.hbs}',
 			options: {
@@ -12,7 +12,7 @@ module.exports = {
 			}
 		},
 		{
-			files: 'turbo/generators/templates/{.prettierrc.js.hbs}',
+			files: 'turbo/generators/templates/{.prettierrc.mjs.hbs}',
 			options: {
 				parser: 'babel'
 			}
