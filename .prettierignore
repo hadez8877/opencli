@@ -1,10 +1,12 @@
 # Deep Directories
+**/coverage
 **/dist
 **/smoke
 **/node_modules
 **/fixtures
 **/fixture
 **/vendor
+**/.turbo
 **/.vercel
 **/.vscode-test
 
@@ -16,6 +18,9 @@ scripts/turbo/generators/templates/**/*
 .changeset
 
 # Files
+**/tsup.config.bundled*
+tsup.config.bundled*
+vitest.config.ts.timestamp*
 pnpm-lock.yaml
 
 # Formatted by Biome
