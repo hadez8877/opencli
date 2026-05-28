@@ -41,7 +41,7 @@ jobs:
         id: commiter
         uses: ./.github/actions/setup-git-commiter
         with:
-          opencli-app-id: ${{ vars.OPENCLI_APP_ID }}
+          opencli-client-id: ${{ vars.OPENCLI_CLIENT_ID }}
           opencli-app-secret: ${{ secrets.OPENCLI_APP_SECRET }}
 
       - name: Create Release Pull Request or Publish

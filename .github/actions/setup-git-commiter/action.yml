@@ -3,7 +3,7 @@ description: 'Create app token and configure git user'
 
 inputs:
   opencli-client-id:
-    description: 'OpenCLI GitHub App ID'
+    description: 'OpenCLI GitHub Client ID'
     required: true
   opencli-app-secret:
     description: 'OpenCLI GitHub App private key'
