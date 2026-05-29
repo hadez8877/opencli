@@ -1,0 +1,51 @@
+name: Format
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'The package.json script name which will be called via "pnpm run <command>"'
+        default: "format"
+        required: false
+        type: string
+  push: 
+    branches: 
+      - main
+
+jobs:
+  format:
+    if: ${{ github.repository_owner == 'hadez8877' }}
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: "--max_old_space_size=4096"
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.head_ref }}
+
+      -  name: Setup git commiter
+         id: commiter
+         uses: ./.github/actions/setup-git-commiter
+         with:
+           opencli-client-id: ${{ vars.OPENCLI_CLIENT_ID }}
+           opencli-app-secret: ${{ secrets.OPENCLI_APP_SECRET }}
+
+      - name: setup PNPM
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24.16.0
+
+      - name: Format code
+        run: pnpm run ${{ inputs.command }}
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
+        with:
+          commit_message: "[ci] format"
+          branch: ${{ github.head_ref }}
+          commit_user_name: ${{ steps.commiter.outputs.app-slug }}[bot]
+          commit_user_email: ${{ steps.commiter.outputs.app-slug }}[bot]@users.noreply.github.com
+          commit_author: ${{ github.event.commits[0].author.name }} <${{ github.actor }}@users.noreply.github.com>
