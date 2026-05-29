@@ -7,7 +7,7 @@ on:
 
 jobs:
   handle-good-first-issue:
-    if: github.event.label.name == 'good first issue' && github.repository_owner == 'hadez8877'
+    if: ${{ github.event.label.name == 'good first issue' && github.repository_owner == 'hadez8877' }}
     runs-on: ubuntu-latest
 
     steps:
