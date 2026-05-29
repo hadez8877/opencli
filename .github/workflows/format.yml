@@ -2,12 +2,6 @@ name: Format
 
 on:
   workflow_dispatch:
-    inputs:
-      command:
-        description: 'The package.json script name which will be called via "pnpm run <command>"'
-        default: "format"
-        required: false
-        type: string
   push: 
     branches: 
       - main
@@ -39,7 +33,7 @@ jobs:
           node-version: 24.16.0
 
       - name: Format code
-        run: pnpm run ${{ inputs.command }}
+        run: pnpm run format
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
