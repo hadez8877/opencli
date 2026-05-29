@@ -72,12 +72,6 @@ web_modules/
 
 # Miscellaneous
 .tmp
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-.windsurf/*
-!.windsurf/extensions.json
-!.windsurf/settings.json
 .idea
 .DS_Store
 .turbo
