@@ -26,7 +26,6 @@
     "packages/*",
     "scripts"
   ],
-  "//": "When updating pnpm version, update merge-main-to-next workflow too",
   "author": "Fabricio Pasapera Viera (@Hadez)",
   "keywords": [
     "opencli",
