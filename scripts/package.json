@@ -17,6 +17,8 @@
   "files": [
     "dist"
   ],
+  "//a": "MOST PACKAGES SHOULD GO IN DEV_DEPENDENCIES! THEY WILL BE BUNDLED.",
+  "//b": "DEPENDENCIES IS FOR UNBUNDLED PACKAGES",
   "contributors": [
     "Fabricio Pasapera Viera (@Hadez)"
   ],
