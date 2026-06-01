@@ -1,6 +1,6 @@
 {
   "name": "opencli-scripts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A set of scripts that we use for our workflows",
   "private": true,
   "type": "module",

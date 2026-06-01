@@ -1,5 +1,11 @@
 # opencli-scripts
 
+## 0.2.0
+
+### Minor Changes
+
+- [`8d9d831`](https://github.com/hadez8877/opencli/commit/8d9d831fdefd80b6a1366d1988daaf31203a1bec) Thanks [@hadez8877](https://github.com/hadez8877)! - Rewrites the package from TypeScript to plain JavaScript for faster startup and lower maintenance overhead
+
 ## 0.1.0
 
 ### Patch Changes
