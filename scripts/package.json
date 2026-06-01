@@ -28,8 +28,8 @@
   },
   "funding": "https://github.com/hadez8877/opencli?sponsor",
   "devDependencies": {
-    "@turbo/gen": "^2.9.15",
-    "turbo": "^2.9.15"
+    "@turbo/gen": "^2.9.16",
+    "turbo": "^2.9.16"
   },
   "dependencies": {
     "tinyglobby": "^0.2.16",
