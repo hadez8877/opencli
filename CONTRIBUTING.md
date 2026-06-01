@@ -78,7 +78,7 @@ opencli/
 ├── turbo.json            # Turborepo pipeline configuration
 ├── pnpm-workspace.yaml   # Workspace package globs
 ├── biome.jsonc           # Biome linter/formatter config
-├── eslint.config.mjs     # ESLint config
+├── eslint.config.js     # ESLint config
 └── tsconfig.json         # Root TypeScript config
 ```
 
