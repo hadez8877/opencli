@@ -7,30 +7,30 @@
 - name: good first issue
   description: Good first issue for newcomers
   color: c8ffef
-- name: "pkg: opencli"
+- name: 'pkg: opencli'
   description: packages/opencli
   color: 5865f2
-- name: "pkg: scripts"
+- name: 'pkg: scripts'
   description: packages/scripts
   color: 5865f2
-- name: "RFC: Accepted"
+- name: 'RFC: Accepted'
   description: RFC has been accepted and will be implemented
   color: a558f2
-- name: "RFC: Closed"
+- name: 'RFC: Closed'
   description: RFC has been closed and will not be implemented
   color: ff4c4c
-- name: "RFC: Implemented"
+- name: 'RFC: Implemented'
   description: RFC has been implemented and merged
   color: 35ed7e
-- name: "RFC: Implementing"
+- name: 'RFC: Implementing'
   description: RFC is currently being worked on
   color: ffb14c
-- name: "RFC: Open"
+- name: 'RFC: Open'
   description: RFC is open for discussion
   color: ffe14c
 - name: website
   description: Modify components/landing page of the project
   color: 35ed7e
-- name: "website: docs"
+- name: 'website: docs'
   description: Modify MDX documentation files
   color: 35ed7e
