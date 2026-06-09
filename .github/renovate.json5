@@ -1,66 +1,68 @@
 {
-	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
-	extends: [
-		'config:recommended',
-		'schedule:weekly',
-		':disablePeerDependencies',
-		'regexManagers:biomeVersions',
-		'helpers:pinGitHubActionDigestsToSemver'
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:recommended",
+		"schedule:weekly",
+		":disablePeerDependencies",
+		"regexManagers:biomeVersions",
+		"helpers:pinGitHubActionDigestsToSemver"
 	],
-	labels: ['dependencies'],
-	rangeStrategy: 'bump',
-	postUpdateOptions: ['pnpmDedupe'],
-	lockFileMaintenance: {
-		enabled: true
+	"labels": ["dependencies"],
+	"rangeStrategy": "bump",
+	"postUpdateOptions": ["pnpmDedupe"],
+	"lockFileMaintenance": {
+		"enabled": true
 	},
-	ignorePaths: ['**/node_modules/**'],
-	packageRules: [
+	"ignorePaths": ["**/node_modules/**"],
+	"packageRules": [
 		//#region Infra groups
 		{
-			groupName: 'lockfile maintenance',
-			matchUpdateTypes: ['lockFileMaintenance']
+			"groupName": "lockfile maintenance",
+			"matchUpdateTypes": ["lockFileMaintenance"]
 		},
 		{
-			groupName: 'github-actions',
-			matchManagers: ['github-actions']
+			"groupName": "github-actions",
+			"matchManagers": ["github-actions"]
 		},
 		{
-			matchManagers: ['npm'],
-			matchDepTypes: ['engines'],
-			enabled: false
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"enabled": false
 		},
 		//#endregion
 
 		//#region Per-package groups (non-major only)
 		{
-			groupName: 'opencli',
-			matchManagers: ['npm'],
-			matchUpdateTypes: ['minor', 'patch'],
-			matchFileNames: ['packages/opencli/**']
+			"groupName": "opencli",
+			"matchManagers": ["npm"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"matchFileNames": ["packages/opencli/**"]
 		},
 		//#endregion
 
 		//#region Standalone packages
 		{
-			groupName: 'create-cli',
-			matchManagers: ['npm'],
-			matchUpdateTypes: ['minor', 'patch'],
-			matchFileNames: ['packages/create-cli/**']
+			"groupName": "create-cli",
+			"matchManagers": ["npm"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"matchFileNames": ["packages/create-cli/**"]
 		}
 		//#endregion
 	],
-	ignoreDeps: [
+	"ignoreDeps": [
 		// manually bumping deps
-		'@biomejs/biome',
-		'typescript',
-		'@types/node',
+		"@biomejs/biome",
+		"@types/node",
+		"@vitest/coverage-v8",
+		"typescript",
+		"vitest",
 
 		// manually bumping workflow actions
-		'actions/labeler',
+		"actions/labeler",
 
 		// follow vite deps version
-		'postcss-load-config',
-		'esbuild'
+		"postcss-load-config",
+		"esbuild"
 	],
-	minimumReleaseAge: '3 days'
+	"minimumReleaseAge": "3 days"
 }
