@@ -1,3 +1,5 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'eslint/config';
 import common from 'eslint-config-neon/common';
 import node from 'eslint-config-neon/node';
@@ -12,6 +14,9 @@ const commonRuleset = merge(...common, { files: [`**/*${commonFiles}`] });
 
 const nodeRuleset = merge(...node, { files: [`**/*${commonFiles}`] });
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const typeScriptRuleset = merge(...typescript, {
 	files: [`**/*${commonFiles}`],
 	ignores: [`packages/opencli/**/*.{js,mjs,cjs}`],
@@ -19,11 +24,8 @@ const typeScriptRuleset = merge(...typescript, {
 		parserOptions: {
 			warnOnUnsupportedTypeScriptVersion: false,
 			allowAutomaticSingleRunInference: true,
-			project: [
-				'tsconfig.eslint.json',
-				'website/tsconfig.eslint.json',
-				'packages/*/tsconfig.eslint.json'
-			]
+			projectService: true,
+			tsConfigRootDir: __dirname
 		}
 	},
 	rules: {
@@ -44,11 +46,8 @@ const typeScriptRuleset = merge(...typescript, {
 		'import-x/resolver-next': [
 			createTypeScriptImportResolver({
 				noWarnOnMultipleProjects: true,
-				project: [
-					'tsconfig.eslint.json',
-					'website/tsconfig.eslint.json',
-					'packages/*/tsconfig.eslint.json'
-				]
+				projectService: true,
+				tsConfigRootDir: __dirname
 			})
 		]
 	}
@@ -56,11 +55,15 @@ const typeScriptRuleset = merge(...typescript, {
 
 const prettierRuleset = merge(...prettier, { files: [`**/*${commonFiles}`] });
 
-export default defineConfig(
+/** @type {import('eslint').Config[]} */
+const configs = [
 	{
 		ignores: [
+			'**/*.d.ts',
 			'**/node_modules/',
 			'.git/',
+			'scripts/',
+			'examples/',
 			'.github/',
 			'.changeset/',
 			'templates/',
@@ -170,4 +173,6 @@ export default defineConfig(
 		rules: { 'tsdoc/syntax': 0 }
 	},
 	prettierRuleset
-);
+];
+
+export default configs;
