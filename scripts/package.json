@@ -32,8 +32,9 @@
     "turbo": "^2.9.16"
   },
   "dependencies": {
-    "tinyglobby": "^0.2.16",
-    "yaml": "^2.9.0"
+    "esbuild": "^0.27.3",
+    "piccolore": "^0.1.3",
+    "tinyglobby": "^0.2.16"
   },
   "engines": {
     "node": ">=22.12.0"

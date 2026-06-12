@@ -77,7 +77,6 @@ web_modules/
 .turbo
 out
 package.tgz
-tsup.config.bundled*
 vitest.config.ts.timestamp*
 
 # parcel-bundler cache (https://parceljs.org/)
