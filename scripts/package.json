@@ -8,15 +8,12 @@
   "bin": {
     "opencli-scripts": "./index.js"
   },
-  "directories": {
-    "example": "turbo"
-  },
   "//a": "MOST PACKAGES SHOULD GO IN DEV_DEPENDENCIES! THEY WILL BE BUNDLED.",
   "//b": "DEPENDENCIES IS FOR UNBUNDLED PACKAGES",
   "contributors": [
     "Fabricio Pasapera Viera (@Hadez)"
   ],
-  "license": "Apache-2.0",
+  "license": "MIT",
   "keywords": [],
   "repository": {
     "type": "git",
