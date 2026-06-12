@@ -25,7 +25,8 @@
     "preinstall": "npx only-allow pnpm"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "scripts"
   ],
   "author": "Fabricio Pasapera Viera (@Hadez)",
   "keywords": [
