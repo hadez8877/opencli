@@ -1,6 +1,5 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { defineConfig } from 'eslint/config';
 import common from 'eslint-config-neon/common';
 import node from 'eslint-config-neon/node';
 import prettier from 'eslint-config-neon/prettier';
