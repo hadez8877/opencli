@@ -1,38 +1,45 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "remoteCache": {
-    "enabled": true
-  },
-  "globalDependencies": ["tsconfig.json"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "inputs": [
-        "bin/**",
-        "src/**",
-        "scripts/**",
-        "package.json",
-        "tsconfig.json",
-        "tsup.config.ts"
+        "**/*",
+        "!__tests__/**/*",
+        "!__mocks__/**/*",
+        "!.cache/**/*",
+        "!.turbo/**/*",
+        "!mod.js",
+        "!mod.js.map"
       ],
-      "outputs": ["dist/**"],
+      "outputs": ["dist/**", "mod.js", "mod.js.map"],
+      "outputLogs": "errors-only"
+    },
+    "build:ci": {
+      "dependsOn": ["^build:ci"],
+      "inputs": [
+        "**/*",
+        "!__tests__/**/*",
+        "!__mocks__/**/*",
+        "!.cache/**/*",
+        "!.turbo/**/*",
+        "!mod.js",
+        "!mod.js.map"
+      ],
+      "outputs": ["dist/**", "mod.js", "mod.js.map"],
       "outputLogs": "errors-only"
     },
     "dev": {
-      "dependsOn": ["^build"],
       "cache": false,
-      "persistent": true,
-      "outputLogs": "full"
+      "persistent": true
     },
     "test": {
       "dependsOn": ["^build"],
       "inputs": [
+        "**/*",
         "../../vitest.config.ts",
         "__mocks__/**",
         "__tests__/**",
-        "src/**",
-        "package.json",
-        "tsconfig.json",
         "vitest.config.ts"
       ],
       "outputs": ["coverage/**"],
@@ -41,16 +48,10 @@
     "lint": {
       "dependsOn": ["^build"],
       "inputs": [
+        "**/*",
         "../../biome.json",
         "../../eslint.config.js",
-        "../../prettier.config.mjs",
-        "../../tsconfig.eslint.json",
-        ".prettierrc.mjs",
-        "bin/**",
-        "src/**",
-        "scripts/**",
-        "package.json",
-        "tsconfig.eslint.json"
+        "../../prettier.config.mjs"
       ],
       "outputs": [],
       "outputLogs": "errors-only"

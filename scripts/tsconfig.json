@@ -1,9 +1,8 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "../tsconfig.json",
+  "extends": "../configs/tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
     "allowJs": true
   },
-  "exclude": ["node_modules", "turbo/generators/templates"]
+  "references": [{ "path": "../.github/scripts/tsconfig.json" }]
 }

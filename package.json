@@ -7,10 +7,12 @@
   "scripts": {
     "release": "pnpm run build && changeset publish",
     "build": "turbo run build --concurrency=4",
+    "build:ci": "turbo run build:ci --concurrency=4",
     "build:affected": "turbo run build --filter=...[origin/main] --concurrency=4",
     "build:examples": "turbo run build --filter=\"@example/*\"",
     "test": "turbo run test --concurrency=4",
     "test:affected": "turbo run test --filter=...[origin/main] --concurrency=4",
+    "typecheck": "tsc -b",
     "lint": "turbo run lint --concurrency=4",
     "lint:affected": "turbo run lint --filter=...[origin/main] --concurrency=4",
     "format": "pnpm run format:code && pnpm run format:imports",
@@ -19,13 +21,11 @@
     "prepare": "is-ci || husky",
     "update": "pnpm --recursive update --interactive",
     "update:latest": "pnpm --recursive update --interactive --latest",
-    "create-package": "turbo gen create-package --args",
     "version": "changeset version && node ./scripts/deps/update-example-versions.mjs && pnpm install --no-frozen-lockfile && pnpm run format",
     "preinstall": "npx only-allow pnpm"
   },
   "workspaces": [
-    "packages/*",
-    "scripts"
+    "packages/*"
   ],
   "author": "Fabricio Pasapera Viera (@Hadez)",
   "keywords": [
@@ -51,19 +51,19 @@
     "@commitlint/config-angular": "^21.0.2",
     "@types/lodash.merge": "^4.6.9",
     "@types/node": "^25.6.2",
+    "esbuild": "0.27.3",
     "eslint": "^10.4.0",
     "eslint-config-neon": "^0.4.0",
     "eslint-import-resolver-typescript": "^4.4.5",
-    "only-allow": "^1.2.2",
     "husky": "^9.1.7",
     "is-ci": "^4.1.0",
     "lodash.merge": "^4.6.2",
+    "only-allow": "^1.2.2",
     "prettier": "^3.8.3",
     "prettier-plugin-astro": "^0.14.1",
     "tinyglobby": "^0.2.16",
-    "tsup": "^8.5.1",
     "turbo": "^2.9.16",
-    "typescript": "~5.9.3",
+    "typescript": "~6.0.3",
     "typescript-eslint": "^8.59.4",
     "vitest": "^4.1.2"
   },

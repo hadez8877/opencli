@@ -1,9 +1,11 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../configs/tsconfig.test.json",
+  "include": [
+    "__tests__/**/*.ts",
+    "package.json"
+  ],
   "compilerOptions": {
-    "noEmit": true
+    "types": ["node"]
   },
-  "include": ["__tests__/**/*.ts"],
-  "exclude": ["node_modules"]
+  "references": [{ "path": "./tsconfig.build.json"}]
 }

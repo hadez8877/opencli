@@ -107,6 +107,9 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         run: pnpm exec turbo run lint --filter="...[HEAD^1]" --concurrency=4 -- --format=compact
 
+      - name: Type-check files
+        run: pnpm run typecheck
+
   tests:
     name: Tests
     runs-on: ${{ matrix.os }}
