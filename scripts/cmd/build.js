@@ -11,12 +11,12 @@ const defaultConfig = {
 	// TODO: update once Stackblitz supports Node 22
 	target: 'node20',
 	sourcemap: false,
-	sourcesContent: false,
+	sourcesContent: false
 };
 
 const dt = new Intl.DateTimeFormat('en-us', {
 	hour: '2-digit',
-	minute: '2-digit',
+	minute: '2-digit'
 });
 
 export default async function build(...args) {
@@ -29,9 +29,9 @@ export default async function build(...args) {
 	let entryPoints = [].concat(
 		...(await Promise.all(
 			patterns.map((pattern) =>
-				glob(pattern, { filesOnly: true, expandDirectories: false, absolute: true }),
-			),
-		)),
+				glob(pattern, { filesOnly: true, expandDirectories: false, absolute: true })
+			)
+		))
 	);
 
 	const noClean = args.includes('--no-clean-dist');
@@ -61,7 +61,7 @@ export default async function build(...args) {
 			entryPoints,
 			outdir,
 			outExtension: forceCJS ? { '.js': '.cjs' } : {},
-			format,
+			format
 		});
 		return;
 	}
@@ -77,13 +77,13 @@ export default async function build(...args) {
 					if (result.warnings.length) {
 						console.info(
 							colors.dim(`[${date}] `) +
-								colors.yellow('! updated with warnings:\n' + result.warnings.join('\n')),
+								colors.yellow('! updated with warnings:\n' + result.warnings.join('\n'))
 						);
 					}
 					console.info(colors.dim(`[${date}] `) + colors.green('√ updated'));
 				}
 			});
-		},
+		}
 	};
 
 	const builder = await esbuild.context({
@@ -92,7 +92,7 @@ export default async function build(...args) {
 		outdir,
 		format,
 		sourcemap: 'linked',
-		plugins: [rebuildPlugin],
+		plugins: [rebuildPlugin]
 	});
 
 	await builder.watch();
@@ -108,7 +108,7 @@ async function clean(outdir, cleanDts) {
 		dot: true,
 		filesOnly: true,
 		ignore: cleanDts ? undefined : ['**/*.d.ts'],
-		absolute: true,
+		absolute: true
 	});
 	await Promise.all(files.map((file) => fs.rm(file, { force: true })));
 }
@@ -118,19 +118,18 @@ async function clean(outdir, cleanDts) {
  * Available to all packages, but mostly useful for CLIs like `create-cli`.
  */
 async function getDefinedEntries() {
-	const [PACKAGE_VERSION, OPENCLI_VERSION, TYPESCRIPT_VERSION] =
-		await Promise.all([
-			getInternalPackageVersion('./package.json'),
-			getInternalPackageVersion(new URL('../../packages/opencli/package.json', import.meta.url)),
-			getWorkspacePackageVersion('typescript'),
-		]);
+	const [PACKAGE_VERSION, OPENCLI_VERSION, TYPESCRIPT_VERSION] = await Promise.all([
+		getInternalPackageVersion('./package.json'),
+		getInternalPackageVersion(new URL('../../packages/opencli/package.json', import.meta.url)),
+		getWorkspacePackageVersion('typescript')
+	]);
 	const define = {
 		/** The current version (at the time of building) for the current package, such as `opencli` or `@opencli/create-cli` */
 		PACKAGE_VERSION,
 		/** The current version (at the time of building) for `opencli` */
 		OPENCLI_VERSION,
 		/** The current version (at the time of building) for `typescript` */
-		TYPESCRIPT_VERSION,
+		TYPESCRIPT_VERSION
 	};
 	for (const [key, value] of Object.entries(define)) {
 		if (value === undefined) {
@@ -150,13 +149,13 @@ async function getInternalPackageVersion(path) {
 
 async function getWorkspacePackageVersion(packageName) {
 	const { dependencies, devDependencies } = await readPackageJSON(
-		new URL('../../package.json', import.meta.url),
+		new URL('../../package.json', import.meta.url)
 	);
 	const deps = { ...dependencies, ...devDependencies };
 	const version = deps[packageName];
 	if (!version) {
 		throw new Error(
-			`Unable to resolve "${packageName}". Is it a dependency of the workspace root?`,
+			`Unable to resolve "${packageName}". Is it a dependency of the workspace root?`
 		);
 	}
 	return version.replace(/^\D+/, '');
