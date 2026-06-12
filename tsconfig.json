@@ -8,7 +8,5 @@
     "./eslint.config.js",
     "./vitest.config.js"
   ],
-  "references": [
-    { "path": "./packages/opencli/tsconfig.json" }
-  ]
+  "references": [{ "path": "./packages/opencli/tsconfig.json" }]
 }
