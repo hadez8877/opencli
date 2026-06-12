@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "description": "OpenCLI is a library for building Command Line Interfaces (CLIs)",
   "scripts": {
-    "build": "tsc --noEmit && tsup",
-    "test": "vitest run --config ../../vitest.config.ts",
+    "build": "opencli-scripts build \"src/**/*.{ts,js}\" --copy-wasm && tsc -b ",
+    "test": "vitest run --config ../../vitest.config.js",
     "lint": "biome lint . && eslint --cache --concurrency=auto ."
   },
   "exports": {
@@ -51,14 +51,14 @@
     "opencli-scripts": "workspace:*",
     "@types/node": "^24.10.1",
     "@vitest/coverage-v8": "^4.1.2",
+    "esbuild": "^0.27.3",
     "eslint": "^10.4.0",
     "eslint-config-neon": "^0.4.0",
     "eslint-formatter-compact": "^9.0.1",
     "eslint-formatter-pretty": "^7.1.0",
     "prettier": "^3.8.3",
-    "tsup": "^8.5.1",
     "turbo": "^2.9.14",
-    "typescript": "~5.9.3",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.2"
   },
   "engines": {
