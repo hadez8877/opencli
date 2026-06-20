@@ -1,10 +1,11 @@
 /**
  * This file has been inspired by: https://github.com/withastro/astro/blob/main/.github/scripts/announce.mjs
  */
-import { fileURLToPath } from 'node:url';
-import { glob } from 'tinyglobby';
+
 import { readFile } from 'node:fs/promises';
 import * as os from 'node:os';
+import { fileURLToPath } from 'node:url';
+import { glob } from 'tinyglobby';
 
 const baseUrl = new URL(`https://github.com/hadez8877/opencli/releases/tag/`);
 
