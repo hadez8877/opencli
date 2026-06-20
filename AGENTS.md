@@ -71,8 +71,6 @@ pnpm run format             # auto-format with Biome + Prettier
 
 # Commits
 
-Angular Commit Convention, enforced by `commitlint`. Violations are rejected by the pre-commit hook.
-
 ```
 <type>(<scope>): <short description>
 ```

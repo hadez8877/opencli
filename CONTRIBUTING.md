@@ -165,7 +165,7 @@ Use a descriptive, lowercase branch name. Prefer prefixes like `feat/`, `fix/`, 
 
 ### Commit Convention
 
-This project follows the **Angular Commit Convention** enforced by [commitlint](https://commitlint.js.org/). Every commit message must follow this format:
+This project follows the **Angular Commit Convention**. Every commit message must follow this format:
 
 ```
 <type>(<scope>): <short description>
@@ -203,8 +203,6 @@ git commit -m "fix(parser): handle empty input gracefully"
 git commit -m "docs(readme): update installation instructions"
 git commit -m "test(cli): cover edge cases in argument parsing"
 ```
-
-A `commit-msg` git hook enforces this automatically via Husky. If your commit is rejected, check the error message from commitlint.
 
 ### Changesets
 
