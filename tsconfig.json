@@ -6,7 +6,7 @@
     // Root config files that aren't in any package
     "./prettier.config.mjs",
     "./eslint.config.js",
-    "./vitest.config.js"
+    "./vitest.config.ts"
   ],
   "references": [{ "path": "./packages/opencli/tsconfig.json" }]
 }

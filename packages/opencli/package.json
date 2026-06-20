@@ -5,7 +5,7 @@
   "description": "OpenCLI is a library for building Command Line Interfaces (CLIs)",
   "scripts": {
     "build": "opencli-scripts build \"src/**/*.{ts,js}\" --copy-wasm && tsc -b ",
-    "test": "vitest run --config ../../vitest.config.js",
+    "test": "vitest run --config ../../vitest.config.ts",
     "lint": "biome lint . && eslint --cache --concurrency=auto ."
   },
   "exports": {
