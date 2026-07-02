@@ -60,7 +60,7 @@ jobs:
   congrats:
     needs: check-author
     if: needs.check-author.outputs.should_congratulate == 'true'
-    uses: withastro/automation/.github/workflows/congratsbot.yml@df47a8aa221fc6b04cec618090dee7254f7e1d49 # main
+    uses: withastro/automation/.github/workflows/congratsbot.yml@595d7186484cff7f25f7d11c2f662e0e7644c098 # main
     with:
       EMOJIS: 🎉,🎊,🧑‍🚀,🥳,🙌,🚀,🦀,🔥,🚢
     secrets:
