@@ -9,7 +9,7 @@
 </p>
 
 <div align="center">
-  
+
 [![CI][ci-badge]][ci-url]
 [![License][license-badge]][license-url]
 [![NPM Version][npm-version-badge]][npm-version-url]
